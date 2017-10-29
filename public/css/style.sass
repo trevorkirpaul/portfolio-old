@@ -12,6 +12,14 @@ $blue: #79BEEE
   @media only screen and (max-width:1200px)
     @content
 
+@mixin overTab
+  @media only screen and (min-width:800px)
+    @content
+
+@mixin phone
+  @media only screen and (max-width:320px)
+    @content
+
 *
   margin: 0
   padding: 0
@@ -58,12 +66,38 @@ body
         a
           img
             width: 75px
+  @include phone
+    header
+      padding-top: 35px
+      padding-left: 0px
+      text-align: center 
+      h1
+        font-size: 4em
+      p
+        font-size: 1.2em
+      
+    .socialLinks
+      position: static
+      ul
+        padding-top: 15px
+        li
+          display: block
+          padding: 10px 0 15px 0
+          a
+            img
+              width: 25px
 
   .greet
     height: 100vh
     background-color: $blue
     padding-top: 15vh
     padding-left: 50px
+    @include phone
+      padding: 55px 10px 15px 10px
+      height: 750px      
+      text-align: center
+      
+      
 
 
     h2    
@@ -92,61 +126,115 @@ body
           font-size: 1.2em
           line-height: 25px
           
-      @include tablet
-        max-width: 500px
+    @include tablet
+      .greetParagraphs
+        max-width: 500px  
 
   .workSection
     height: 100vh
-    padding-top: 100px
-    
-           
-    .workContainer
-      max-width: 1100px
-      margin: 0 auto
+    margin-top: 150px    
+    text-align: center
+
+    @include phone
+      height: 950px
+
+    h3
+      font-size: 2em
+      font-weight: 300
+      margin-bottom: 20px
+
+    p
+      line-height: 25px
+      margin-bottom: 30px
+    .workGrid
       display: grid
-      grid-template-columns: 1fr 1fr
-
-      @include tablet       
-          
-        .workPanel
-          grid-column: 1/3
-          margin: 50px 0
-         
-
+      grid-template-columns: 1fr 1fr 
+      grid-column-gap: 50px     
+      max-width: 800px
+      margin: 100px auto 0 auto       
+      
       .workPanel
-        background-image: url('../img/restaurant.png')
-        background-size: cover
-        background-position: center
-        height: 300px
-        width: 500px
-        margin: 0 auto
-        cursor: pointer
-        transition: 0.4s
+        background-color: $black    
+        color: $white
+        padding: 25px
+        img
+          width: 100%        
         
-        &:hover .workPanelText
-          opacity: 1
-           
-                              
-        .workPanelText          
-          opacity: 0
-          transition: 0.3s
-          padding: 15px
-          background-color: $coral
-          height: 100%
-          text-align: center
-          h3
-            font-size: 2em
-            margin-bottom: 25px 
-            margin-top: 35px
-          p
-            width: 50%
-            margin: 0 auto
+      .left
+        grid-column: 1/2
+      .right
+        grid-column: 2/3
+
+    @include tablet
+      .workGrid
+        display: block
+        .workPanel
+          width: 400px          
+          margin: 15px auto
+    @include phone
+      .workGrid
+      display: block
+      .workPanel
+        width: 150px          
+        margin: 15px auto
+    @include phone
+      margin-top: 0
+      padding-top: 25px
+      background-color: $black
+      color: $white
+      h2
+        font-size: 2.5em 
+      .workGrid
+        display: block
+        margin-top: 15px
+        .workPanel
+          width: 100%
+
 
     
   
   footer
     height: 100vh
     background-color: $black
+    color: $coral
+    text-align: center
+    @include phone
+      background-color: $red
+      height: 800px
+      color: $black
+      padding: 0 15px 0 15px
+      
+
+    span
+      display: inline-block
+      margin-top: 150px
+      font-size: 5em
+      @include phone
+        margin-top: 0
+        margin-top: 15px
+        background-color: $red
+        color: $white
+        display: inline-block
+    p
+      max-width: 400px
+      margin: 50px auto
+      color: $white
+      line-height: 45px
+      font-size: 1.4em
+      @include phone
+        color: $black
+
+  div
+    ul
+      list-style: none
+    @include overTab
+      ul
+        list-style: none
+        li
+          display: inline-block
+
+
+
     
 
 
