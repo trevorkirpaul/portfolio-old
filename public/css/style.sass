@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,600,700')
+
+//var
+$font: 'Crimson Text', serif
+$white: #E8E8E8
+$black: #292F36
+$coral: #FF8A5B
+$red: #CC2936
+$blue: #79BEEE
+
+@mixin tablet 
+  @media only screen and (max-width:1200px)
+    @content
+
+*
+  margin: 0
+  padding: 0
+  outline: none
+  box-sizing: border-box
+
+body
+  font-family: $font
+  background-color: $white
+  color: $black
+
+.container
+  
+  header
+    position: relative
+    height: 100vh
+    padding-top: 30vh
+    padding-left: 50px
+    background-color: $white
+    color: $black
+
+    h1
+      margin-bottom: 35px
+      font-size: 5em
+      font-weight: 600
+      letter-spacing: 4px      
+    
+    p
+      margin-bottom: 15px
+      margin-left: 10px
+      font-size: 1.5em
+      font-weight: 400
+       
+  .socialLinks
+    position: absolute
+    top: 25px
+    right: 25px
+
+    ul
+      list-style: none
+      li
+        display: inline-block
+        padding-left: 50px
+        a
+          img
+            width: 75px
+
+  .greet
+    height: 100vh
+    background-color: $blue
+    padding-top: 15vh
+    padding-left: 50px
+
+
+    h2    
+      font-size: 3.7em
+      margin-bottom: 50px
+ 
+
+    .greetParagraphs
+      max-width: 1200px
+   
+      p
+        display: inline-block
+        font-size: 1.7em      
+        margin-bottom: 25px
+        line-height: 55px
+      
+        .paragraphHighlight
+          
+          background-color: $white
+          color: $black
+          padding: 5px 10px
+        .underline
+          border-bottom: 2px solid $white
+      @include tablet
+        p
+          font-size: 1.2em
+          line-height: 25px
+          
+      @include tablet
+        max-width: 500px
+
+  .workSection
+    height: 100vh
+    padding-top: 100px
+    
+           
+    .workContainer
+      max-width: 1100px
+      margin: 0 auto
+      display: grid
+      grid-template-columns: 1fr 1fr
+
+      @include tablet       
+          
+        .workPanel
+          grid-column: 1/3
+          margin: 50px 0
+         
+
+      .workPanel
+        background-image: url('../img/restaurant.png')
+        background-size: cover
+        background-position: center
+        height: 300px
+        width: 500px
+        margin: 0 auto
+        cursor: pointer
+        transition: 0.4s
+        
+        &:hover .workPanelText
+          opacity: 1
+           
+                              
+        .workPanelText          
+          opacity: 0
+          transition: 0.3s
+          padding: 15px
+          background-color: $coral
+          height: 100%
+          text-align: center
+          h3
+            font-size: 2em
+            margin-bottom: 25px 
+            margin-top: 35px
+          p
+            width: 50%
+            margin: 0 auto
+
+    
+  
+  footer
+    height: 100vh
+    background-color: $black
+    
+
+
+
